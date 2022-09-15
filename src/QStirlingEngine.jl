@@ -2,6 +2,7 @@ module QStirlingEngine
 
 using LinearAlgebra
 using Random
+using DifferentialEquations
 
 include("Decay.jl");
 include("EigenSystem.jl");

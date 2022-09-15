@@ -11,7 +11,7 @@ function evalP11(Δp::Function, ωm, G)
 end
 
 function evalP12(Δp::Function, ωm, G)
-    t -> return -((ωm^2-Δp(t)^2-sqrt(ωm^4+16*G^2*ωm*Δp(t)-2*ωm^2*Δp(t)^2+Δp(t)^4))/(4*G*sqrt(1+(1/16)*abs((ωm^2-Δp(t)^2-sqrt(ωm^4+16*G^2*ωm*Δp(t)-2*ωm^2*Δp(t)^2+Δp(t)^4))/(G*sqrt(ωm*Δp(t))))^2)*sqrt(ωm*Δp(t))))
+    t -> -((ωm^2-Δp(t)^2-sqrt(ωm^4+16*G^2*ωm*Δp(t)-2*ωm^2*Δp(t)^2+Δp(t)^4))/(4*G*sqrt(1+(1/16)*abs((ωm^2-Δp(t)^2-sqrt(ωm^4+16*G^2*ωm*Δp(t)-2*ωm^2*Δp(t)^2+Δp(t)^4))/(G*sqrt(ωm*Δp(t))))^2)*sqrt(ωm*Δp(t))))
 end
 
 function evalP21(Δp::Function, ωm, G)
