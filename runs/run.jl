@@ -5,10 +5,15 @@ using Random
 using DifferentialEquations
 using NPZ
 
-tspan = (0., 1_000.)
+tspan = (0., 10_000)
 
 rΔp, ωm, G, Th, Tc, γh, γc = rand(Float64, (7))
-Δp = t -> rΔp+rΔp*10^(-5)*t
+while Th<Tc
+    global Th, global Tc = rand(Float64, (2))
+end
+γh = 10^(-3)*γh
+γc = 10^(-3)*γc
+Δp = t -> rΔp+rΔp*10^(-4)*t
 
 P = evalP(Δp, ωm, G)
 M = evalM(Δp, ωm, G, Th, Tc, γh, γc)
@@ -34,4 +39,12 @@ for j in 1:10
 end
 
 npzwrite("./data/run.npz", Dict("t" => sol.t,
-                                "cov" => cov))
+                                "cov" => cov,
+                                "rDeltap" => rΔp,
+                                "omegam" => ωm,
+                                "G" => G,
+                                "Th" => Th,
+                                "Tc" => Tc,
+                                "gammah" => γh,
+                                "gammac" => γc,
+                                "rho0" => ρ0))
