@@ -3,6 +3,7 @@ using .QStirlingEngine
 using LinearAlgebra
 using Random
 using DifferentialEquations
+using NPZ
 
 tspan = (0., 1_000.)
 
