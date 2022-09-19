@@ -11,8 +11,8 @@ rΔp, ωm, G, Th, Tc, γh, γc = rand(Float64, (7))
 while Th<Tc
     global Th, Tc = rand(Float64, (2))
 end
-γh = 10^(-3)*γh
-γc = 10^(-3)*γc
+γh *= 10^(-3)
+γc *= 10^(-3)
 Δp = t -> rΔp + 10^(-4)*rΔp*t
 
 P = evalP(Δp, ωm, G)
