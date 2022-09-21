@@ -5,7 +5,7 @@ using Random
 using DifferentialEquations
 using NPZ
 
-tspan = (0., 10_000)
+tspan = (0., 50_000)
 
 rΔp, ωm, G, Th, Tc, γh, γc = rand(Float64, (7))
 while Th<Tc
@@ -38,7 +38,7 @@ for j in 1:10
     cov[:, j] = [sol.u[i][j] for i in eachindex(sol.t)]
 end
 
-npzwrite("./data/run.npz", Dict("t" => sol.t,
+npzwrite("./data/run_03.npz", Dict("t" => sol.t,
                                 "cov" => cov,
                                 "rDeltap" => rΔp,
                                 "omegam" => ωm,
