@@ -32,3 +32,11 @@ function evalP(Δp::Function, ωm, G)
           P21(t) 0 P22(t) 0
           0 P21(t) 0 P22(t)]
 end
+
+function eigScan(plus, Δp, ωm, G)
+    if plus
+        return sqrt(1/4 * (Δp^2 + ωm^2 + sqrt(Δp^4 + 16*G^2*Δp*ωm - 2*Δp^2*ωm^2 + ωm^4)))
+    else
+        return sqrt(1/4 * (Δp^2 + ωm^2 - sqrt(Δp^4 + 16*G^2*Δp*ωm - 2*Δp^2*ωm^2 + ωm^4)))
+    end
+end

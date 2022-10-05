@@ -10,7 +10,7 @@ include("Matrices.jl")
 include("EqSolver.jl")
 
 export n, decay
-export evalΩ1, evalΩ2, evalP11, evalP12, evalP21, evalP22, evalP
+export evalΩ1, evalΩ2, evalP11, evalP12, evalP21, evalP22, evalP, eigScan
 export evalΔ, evalΣ, evalξ, evalM, evalC
 export eqSolver
 
