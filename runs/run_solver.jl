@@ -15,6 +15,7 @@ rΔp, ωm, G, Th, Tc, γh, γc = rand(Float64, (7))
 while Th<Tc
     global Th, Tc = rand(Float64, (2))
 end
+G *= 10^(-1)
 γh *= 10^(-3)
 γc *= 10^(-3)
 ρ0 = [4.08869024190911 0.3020135004112786 -2.6885011832628827 -0.4528955715802489
@@ -23,8 +24,8 @@ end
       -0.45289557158024896 4.438387229442656 0.9534619295961203 6.981967317786721]
 
 # Copy parameters from specific run
-vars = npzread("./data/run_03_slow_driving.npz")
-rΔp, ωm, G, Th, Tc, γh, γc, ρ0 = vars["rDeltap"], vars["omegam"], 0.001*vars["G"], vars["Th"], vars["Tc"], vars["gammah"], vars["gammac"], vars["rho0"]
+# vars = npzread("./data/run_03_slow_driving.npz")
+# rΔp, ωm, G, Th, Tc, γh, γc, ρ0 = vars["rDeltap"], vars["omegam"], 0.001*vars["G"], vars["Th"], vars["Tc"], vars["gammah"], vars["gammac"], vars["rho0"]
 
 # Define Δp funcdddtion
 tilt = 2 * 10^(-1)
@@ -40,7 +41,7 @@ for j in 1:10
     cov[:, j] = [sol.u[i][j] for i in eachindex(sol.t)]
 end
 
-npzwrite("./data/run_04.npz", Dict("t" => sol.t,
+npzwrite("./data/run_05.npz", Dict("t" => sol.t,
                                    "cov" => cov,
                                    "rDeltap" => rΔp,
                                    "omegam" => ωm,
