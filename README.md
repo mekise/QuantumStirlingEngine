@@ -1,1 +1,1 @@
-# QuantumStirlingEngine
+# quantum-stirling-engine
